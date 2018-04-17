@@ -31,10 +31,10 @@
       margin: auto;
       display: table;
       vertical-align: baseline;
-      padding: 3rem;
+      padding: 2rem;
       border: 2px solid  #242f40;
       border-radius: 2px;
-      margin-top: 10%;
+      margin-top:4rem;
     }
     .title {
       display: flex;
@@ -52,6 +52,20 @@
       display: table-cell;
       text-align: right;
       vertical-align:baseline;
+    }
+    .go-go {
+      padding: 1rem;
+      width:100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+    .rangers-gif {
+      width:100%;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
     }
   </style>
 </head>
@@ -108,11 +122,40 @@
             <!-- seconds -->
 
           </div>
-          <p>Go Go Power Rangers!</p>
-          <div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/t6f2bNAjx7Bio" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/t6f2bNAjx7Bio">via GIPHY</a></p>        </div>
+          <div style="width: 100%; display: flex; align-content: center; justify-content: center; padding: 1rem;" id="power">
+              <button onClick="givePower()">Gimme Power!</button>
+            </div>
+            <div id="rangers">
+
+            </div>
+          <!-- <p class="go-go">Go Go Power Rangers!</p> -->
+          
+          <!-- <div class="rangers-gif"><iframe src="https://giphy.com/embed/t6f2bNAjx7Bio" width="600" height="400"  frameBorder="0" class="giphy-embed"></iframe> -->
       </div>
     </div>
   <script>
+    function givePower() {
+      console.log("poweeer")
+      var div = document.createElement("DIV");
+      var p = document.createElement("P");
+      var iframe = document.createElement("IFRAME");
+      iframe.src = "https://giphy.com/embed/t6f2bNAjx7Bio"
+      iframe.width = "600"
+      iframe.height = "400"
+      iframe.allowFullScreen = true
+      iframe.className= "giphy-embed"
+      iframe.frameBorder = "0"
+
+      p.className = "go-go"
+      div.className = "rangers-gif"
+
+      var text = document.createTextNode("Go Go Power Rangers!");       // Create a text node
+      p.appendChild(text);
+      div.appendChild(iframe);                          // Append the text to <button>
+      document.getElementById("rangers").appendChild(div);
+      document.getElementById("rangers").appendChild(p);       
+      
+    }
     var deadline = '2018-6-31';
     function getTimeRemaining(endTime) {
         var t = Date.parse(endTime) - Date.parse(new Date())
