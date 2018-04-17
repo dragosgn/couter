@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet">
   <style>
+    body {
+      background-color: white;
+    }
     * {
       font-family: 'Orbitron', sans-serif;
     }
@@ -22,6 +25,7 @@
       display: table-cell;
       text-align: right;
       vertical-align:baseline;
+      color: #242f40;
     }
     .clock {
       display: table;
@@ -29,7 +33,7 @@
       padding: 3rem;
     }
     .clock-letter {
-      color: red;
+      color: #9dc217;
       font-weight: 400;
       width: 4rem;
       padding-right: 0.5rem;
@@ -53,11 +57,18 @@
             </p>
 
             <!-- months -->
-            <p class="clock-letter"
+            <!-- <p class="clock-letter"
             id="months" >
             </p>
-            <p>months</p>
+            <p>mts</p> -->
             <!-- months -->
+
+            <!-- weeks -->
+            <p class="clock-letter"
+            id="weeks" >
+            </p>
+            <p>wks</p>
+            <!-- weeks -->
 
             <!-- days -->
             <p class="clock-letter"
@@ -65,6 +76,20 @@
             </p>
             <p>days</p>
             <!-- days -->
+
+            <!-- hours -->
+            <p class="clock-letter"
+            id="hours" >
+            </p>
+            <p>hrs</p>
+            <!-- hours -->
+
+            <!-- minutes -->
+            <p class="clock-letter"
+            id="minutes" >
+            </p>
+            <p>min</p>
+            <!-- minutes -->
 
             <!-- seconds -->
             <p class="clock-letter"
@@ -106,6 +131,17 @@
 
     function setValues(){
       console.log("executed")
+      if(true) {
+        var months = document.createElement("P")
+        months.setAttribute("id", "months");
+        var t = document.createTextNode("mnts");
+        months.appendChild(t);                                // Append the text to <button>
+        document.body.appendChild(months);
+        document.getElementById("months").innerHTML = String(getTimeRemaining(deadline).months)
+      }
+
+
+
       document.getElementById("months").innerHTML = String(getTimeRemaining(deadline).months)
       document.getElementById("weeks").innerHTML = String(getTimeRemaining(deadline).weeks)
       document.getElementById("days").innerHTML = String(getTimeRemaining(deadline).days)
