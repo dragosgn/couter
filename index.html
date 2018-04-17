@@ -1,0 +1,107 @@
+
+
+
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Counter</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Orbitron', sans-serif;
+    }
+    p {
+      font-size: 24px;
+      margin-bottom: 0px;
+      vertical-align: bottom;
+      line-height:24px;
+      display: table-cell;
+      text-align: right;
+      vertical-align:baseline;
+    }
+    .clock {
+      display: table;
+      vertical-align:baseline;
+      padding: 3rem;
+    }
+    .clock-letter {
+      color: red;
+      font-weight: 400;
+      width: 4rem;
+      padding-right: 0.25rem;
+      font-size: 32px;
+      line-height:32px;
+      display: table-cell;
+      text-align: right;
+      vertical-align:baseline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <div class="clock">
+            <p>
+              Time left:
+            </p>
+            <!-- days -->
+            <p class="clock-letter"
+            id="days" >
+            </p>
+            <p>sec</p>
+            <!-- days -->
+            <!-- seconds -->
+            <p class="clock-letter"
+            id="seconds" >
+            </p>
+            <p>sec</p>
+            <!-- seconds -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <script>
+    var deadline = '2018-6-31';
+    function getTimeRemaining(endTime) {
+        var t = Date.parse(endTime) - Date.parse(new Date())
+        var seconds = Math.floor((t/1000) % 60)
+        var minutes = Math.floor((t/1000/60) % 60)
+        var hours = Math.floor(t/(1000*60*60) % 24)
+        var days = Math.floor(t/(1000*60*60*24))
+
+        return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        }
+    }
+
+    var days = getTimeRemaining(deadline).days
+    var hours = getTimeRemaining(deadline).hours
+    var minutes = getTimeRemaining(deadline).minutes
+
+    function setValues(){
+      console.log("executed")
+      document.getElementById("seconds").innerHTML = String(getTimeRemaining(deadline).seconds)
+      } 
+    setInterval(setValues, 500)
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
