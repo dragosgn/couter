@@ -28,9 +28,18 @@
       color: #242f40;
     }
     .clock {
+      margin: auto;
       display: table;
-      vertical-align:baseline;
+      vertical-align: baseline;
       padding: 3rem;
+      border: 2px solid  #242f40;
+      border-radius: 2px;
+      margin-top: 10%;
+    }
+    .title {
+      display: flex;
+      justify-content: flex-start;
+      width: fit-content;
     }
     .clock-letter {
       color: #9dc217;
@@ -52,15 +61,15 @@
       <div class="row">
         <div class="col-sm">
           <div class="clock">
-            <p>
+            <p class="title">
               Time left:
             </p>
 
             <!-- months -->
-            <!-- <p class="clock-letter"
+            <p class="clock-letter"
             id="months" >
             </p>
-            <p>mts</p> -->
+            <p>mts</p>
             <!-- months -->
 
             <!-- weeks -->
@@ -99,7 +108,8 @@
             <!-- seconds -->
 
           </div>
-        </div>
+          <p>Go Go Power Rangers!</p>
+          <div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/t6f2bNAjx7Bio" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/t6f2bNAjx7Bio">via GIPHY</a></p>        </div>
       </div>
     </div>
   <script>
@@ -131,17 +141,6 @@
 
     function setValues(){
       console.log("executed")
-      if(true) {
-        var months = document.createElement("P")
-        months.setAttribute("id", "months");
-        var t = document.createTextNode("mnts");
-        months.appendChild(t);                                // Append the text to <button>
-        document.body.appendChild(months);
-        document.getElementById("months").innerHTML = String(getTimeRemaining(deadline).months)
-      }
-
-
-
       document.getElementById("months").innerHTML = String(getTimeRemaining(deadline).months)
       document.getElementById("weeks").innerHTML = String(getTimeRemaining(deadline).weeks)
       document.getElementById("days").innerHTML = String(getTimeRemaining(deadline).days)
