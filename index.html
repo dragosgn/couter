@@ -17,6 +17,12 @@
     * {
       font-family: 'Orbitron', sans-serif;
     }
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+        font-size: 60px;
+      }
+    }
     p {
       font-size: 24px;
       margin-bottom: 0px;
@@ -54,7 +60,12 @@
       vertical-align:baseline;
     }
     .go-go {
+      margin-top: 0.5rem;
+      background-color: papayawhip;
+      color: palevioletred;
+      animation: blinker 1s linear infinite;
       padding: 1rem;
+      padding-top: 2rem;
       width:100%;
       display: flex;
       align-items: center;
@@ -128,12 +139,21 @@
             <div id="rangers">
 
             </div>
-          <!-- <p class="go-go">Go Go Power Rangers!</p> -->
-          
-          <!-- <div class="rangers-gif"><iframe src="https://giphy.com/embed/t6f2bNAjx7Bio" width="600" height="400"  frameBorder="0" class="giphy-embed"></iframe> -->
       </div>
     </div>
   <script>
+
+    Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+    }
+
+    NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+        for(var i = this.length - 1; i >= 0; i--) {
+            if(this[i] && this[i].parentElement) {
+                this[i].parentElement.removeChild(this[i]);
+            }
+        }
+    }
     function givePower() {
       console.log("poweeer")
       var div = document.createElement("DIV");
@@ -149,11 +169,16 @@
       p.className = "go-go"
       div.className = "rangers-gif"
 
-      var text = document.createTextNode("Go Go Power Rangers!");       // Create a text node
+      var text = document.createTextNode("Go Go Power Rangers!");
+
       p.appendChild(text);
-      div.appendChild(iframe);                          // Append the text to <button>
-      document.getElementById("rangers").appendChild(div);
+      div.appendChild(iframe);
+
       document.getElementById("rangers").appendChild(p);       
+      document.getElementById("rangers").appendChild(div);
+
+      document.getElementById("power").remove();
+
       
     }
     var deadline = '2018-6-31';
