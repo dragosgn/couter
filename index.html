@@ -20,11 +20,11 @@
     @keyframes blinker {
       50% {
         opacity: 0;
-        font-size: 60px;
+        font-size: 36px;
       }
     }
     p {
-      font-size: 24px;
+      font-size: 28px;
       margin-bottom: 0px;
       vertical-align: bottom;
       line-height:28px;
@@ -40,7 +40,7 @@
       padding: 2rem;
       border: 2px solid  #242f40;
       border-radius: 2px;
-      margin-top:4rem;
+      margin-top:10%;
     }
     .title {
       display: flex;
@@ -53,16 +53,15 @@
       width: 4rem;
       padding-right: 0.5rem;
       padding-left: 1rem;
-      font-size: 36px;
-      line-height:32px;
+      font-size: 42px;
+      line-height:42px;
       display: table-cell;
       text-align: right;
       vertical-align:baseline;
     }
     .go-go {
       margin-top: 0.5rem;
-      background-color: papayawhip;
-      color: palevioletred;
+      color:#E94B3C;
       animation: blinker 1s linear infinite;
       padding: 1rem;
       padding-top: 2rem;
@@ -70,13 +69,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 32px;
+      font-size: 60px;
     }
     .rangers-gif {
       width:100%;
       display: flex;
       justify-content: center;
       padding: 1rem;
+    }
+    .button {
+      display: flex;
+      align-content: center;
+      align-items:center;
+      padding: 0.5rem 2rem 0.5rem 2rem;
+      color: white;
+      background-color: #9dc217;
+      border: 0px;
+      border-radius: 2px;
     }
   </style>
 </head>
@@ -89,7 +98,6 @@
             <p class="title">
               Time left:
             </p>
-
             <!-- months -->
             <p class="clock-letter"
             id="months" >
@@ -134,7 +142,7 @@
 
           </div>
           <div style="width: 100%; display: flex; align-content: center; justify-content: center; padding: 1rem;" id="power">
-              <button onClick="givePower()">Gimme Power!</button>
+              <button onClick="givePower()" class="button">Gimme Power!</button>
             </div>
             <div id="rangers">
 
