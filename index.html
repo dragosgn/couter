@@ -16,7 +16,9 @@
     }
     body {
       background-color: white;
-      height: 100vh;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
     * {
       font-family: 'Orbitron', sans-serif;
@@ -42,6 +44,7 @@
       display: table;
       vertical-align: baseline;
       padding: 2rem;
+      width: 1300px;
       border: 2px solid  #242f40;
       border-radius: 2px;
       margin-top:10%;
@@ -54,10 +57,11 @@
     .clock-letter {
       color: #9dc217;
       font-weight: 400;
-      width: 4rem;
+      width: 6.5rem;
+      min-width: 6.5rem;
       padding-right: 0.5rem;
       padding-left: 1rem;
-      font-size: 48px;
+      font-size: 46px;
       line-height:42px;
       display: table-cell;
       text-align: right;
@@ -94,11 +98,22 @@
     .footer-text {
       font-size: 14px;
     }
+    .number {
+      display: flex;
+    }
+    .unit {
+      text-align: left;
+    }
+    .footer {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 1rem;
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
       <div class="row">
         <div class="col-sm">
           <div class="clock">
@@ -109,42 +124,41 @@
             <p class="clock-letter"
             id="months" >
             </p>
-            <p>mts</p>
+            <p class="unit">mts</p>
             <!-- months -->
 
             <!-- weeks -->
             <p class="clock-letter"
             id="weeks" >
             </p>
-            <p>wks</p>
+            <p class="unit">wks</p>
             <!-- weeks -->
 
             <!-- days -->
             <p class="clock-letter"
             id="days" >
             </p>
-            <p>days</p>
+            <p class="unit">days</p>
             <!-- days -->
 
             <!-- hours -->
             <p class="clock-letter"
             id="hours" >
             </p>
-            <p>hrs</p>
-            <!-- hours -->
+            <p class="unit">hrs</p>
 
             <!-- minutes -->
             <p class="clock-letter"
             id="minutes" >
             </p>
-            <p>min</p>
+            <p class="unit">min</p>
             <!-- minutes -->
 
             <!-- seconds -->
             <p class="clock-letter"
             id="seconds" >
             </p>
-            <p>sec</p>
+            <p class="unit">sec</p>
             <!-- seconds -->
 
           </div>
@@ -155,6 +169,10 @@
 
             </div>
       </div>
+    </div>
+    </div>
+    <div class="footer">
+        <p class="footer-text">Made with ❤️  by lokalleads</p>
     </div>
   <script>
 
@@ -234,9 +252,6 @@
       } 
     setInterval(setValues, 500)
     </script>
-    <footer>
-      <p class="footer-text">Made with ❤️  by lokalleads</p>
-    </footer>
 </body>
 
 </html>
